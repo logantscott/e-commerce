@@ -3,7 +3,7 @@ import renderBox from './renderProducts.js';
 
 console.log('test');
 
-const container = document.getElementById('product');
+const container = document.getElementById('products');
 
 for (let i = 0; i < boxes.length; i++) {
     console.log('hi');
