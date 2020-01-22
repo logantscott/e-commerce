@@ -1,6 +1,4 @@
-const container = document.getElementById('product');
-
-function renderbox(box) {
+function renderBox(box) {
     const li = document.createElement('li');
 
     const h3 = document.createElement('h3');
@@ -38,3 +36,5 @@ function renderbox(box) {
 
     return li;
 }
+
+export default renderBox;
