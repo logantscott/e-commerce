@@ -35,6 +35,7 @@ function renderBox(box) {
     
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
+    button.className = 'addProduct';
     button.value = box.id;
     li.appendChild(button);
 
