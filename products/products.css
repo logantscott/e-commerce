@@ -28,23 +28,24 @@
     height: 100px;
     display: block;
     margin: 0 auto;
+    padding: 0 5%;
 }
 
 #products .price {
-    font-size: 12px;
+    font-size: 14px;
     text-align: right;
     margin-right: 5%;
 }
 
 #products span.sale {
+    font-weight: bold;
+}
+
+#products .green {
     color: green;
 }
 
-#products span.price {
-    color: green;
-}
-
-#products span.price+span {
+#products .red {
     color: red;
     text-decoration: line-through;
 }
@@ -59,7 +60,7 @@
 #products p {
     font-size: 12px;
     text-align: left;
-    height: 20px;
+    line-height: 12px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -68,7 +69,7 @@
 }
 
 #products button {
-    margin: 5px auto;
+    margin: 10px auto;
     display: block;
 }
 

@@ -5,7 +5,8 @@ const averageBox = {
     color: 'brown',
     description: 'Our best selling box!',
     category: 'boxes',
-    price: 5.00
+    price: 5.00,
+    sale: 4.00
 };
 
 const mediumBox = {

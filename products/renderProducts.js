@@ -14,15 +14,18 @@ function renderBox(box) {
     div.className = 'price';
     li.appendChild(div);
 
-
-    const salespan = document.createElement('span');
+    const usd = (currency) => '$' + currency.toFixed(2);
+    
     const pricespan = document.createElement('span');
+    pricespan.className = 'green';
     if (box.sale) {
-        salespan.textContent = box.sale + '&nbsp;&nbsp;';
+        const salespan = document.createElement('span');
+        salespan.innerHTML = usd(box.sale) + '&nbsp;&nbsp;';
         div.appendChild(salespan);
+        salespan.className = 'green sale';
+        pricespan.className = 'red';
     }
-    const usd = '$' + box.price.toFixed(2);
-    pricespan.textContent = usd;
+    pricespan.textContent = usd(box.price);
     div.appendChild(pricespan);
 
     const p = document.createElement('p');
