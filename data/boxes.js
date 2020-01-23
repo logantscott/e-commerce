@@ -1,9 +1,9 @@
 const averageBox = {
     id: 21,
     name: 'Average Box',
-    image: 'averagebox.png',
+    image: 'averagebox.jpg',
     color: 'brown',
-    description: 'It\'s an average box.',
+    description: 'Our best selling box!',
     category: 'boxes',
     price: 5.00
 };
@@ -11,7 +11,7 @@ const averageBox = {
 const mediumBox = {
     id: 24,
     name: 'Medium Box',
-    image: 'mediumbox.png',
+    image: 'mediumbox.jpg',
     color: 'brown',
     description: 'It\'s a medium box.',
     category: 'boxes',
@@ -21,7 +21,7 @@ const mediumBox = {
 const largeBox = {
     id: 43,
     name: 'Large Box',
-    image: 'largebox.png',
+    image: 'largebox.jpg',
     color: 'brown',
     description: 'It\'s a large box.',
     category: 'boxes',
@@ -31,7 +31,7 @@ const largeBox = {
 const longBox = {
     id: 38,
     name: 'Long Box',
-    image: 'longbox.png',
+    image: 'longbox.jpg',
     color: 'brown',
     description: 'It\'s a long box.',
     category: 'boxes',
@@ -41,9 +41,9 @@ const longBox = {
 const smallBox = {
     id: 1,
     name: 'Small Box',
-    image: 'smallbox.png',
+    image: 'smallbox.jpg',
     color: 'brown',
-    description: 'Not to be confused with smallpox.',
+    description: 'Our smallest box.',
     category: 'boxes',
     price: 4.00
 };
@@ -51,9 +51,9 @@ const smallBox = {
 const flatBox = {
     id: 101,
     name: 'Flat Box',
-    image: 'flatbox.png',
+    image: 'flatbox.jpg',
     color: 'brown',
-    description: 'For like, TV\'s and stuff.',
+    description: 'For like, TV\'s, or something.',
     category: 'boxes',
     price: 13.00
 };
@@ -61,7 +61,7 @@ const flatBox = {
 const donutBox = {
     id: 21,
     name: 'Donut Box',
-    image: 'donutbox.png',
+    image: 'donutbox.jpg',
     color: 'pink',
     description: 'No one really knows what this box is used for.',
     category: 'boxes',

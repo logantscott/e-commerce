@@ -1,5 +1,6 @@
 #products ul {
     position: relative;
+    overflow: auto;
 }
 
 #products li {
@@ -11,6 +12,7 @@
     text-align: center;
     float: left;
     margin: 10px;
+    box-shadow: 1px 1px 3px #333;
 }
 
 #products h3 {
@@ -22,8 +24,10 @@
 }
 
 #products img {
-    width: 90%;
+    max-width: 90%;
     height: 100px;
+    display: block;
+    margin: 0 auto;
 }
 
 #products .price {
@@ -45,24 +49,36 @@
     text-decoration: line-through;
 }
 
-#products div {
+/* #products div {
     height: 20px;
     width: 90%;
     margin: 0 auto;
     overflow: hidden;
-}
+} */
 
-#products div p {
-    font-size: 10px;
-    height: 40px;
+#products p {
+    font-size: 12px;
+    text-align: left;
+    height: 20px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin: 5px;
+    margin: 5px 5%;
 }
 
 #products button {
     margin: 5px auto;
     display: block;
+}
+
+footer a {
+    color: #ddd;
+}
+
+footer {
+    display: none;
+    clear: both;
+    margin: 0 auto;
+    text-align: center;
 }

@@ -27,12 +27,13 @@ function renderBox(box) {
 
     const p = document.createElement('p');
     p.className = 'description';
+    p.textContent = box.description;
     li.appendChild(p);
     
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
     button.value = box.id;
-    p.appendChild(button);
+    li.appendChild(button);
 
     return li;
 }
