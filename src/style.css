@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #eee;
+    margin: 0 auto;
+}
+
+header { 
+    position: relative;
+    height: 120px;
+    line-height: 120px;
+    width: 100%;
+    background: #333;
+    color: #ddd;
+}
+
+header a, header a:active, header a:hover {
+    color: #ddd
+}
+
+header a h1 {
+    position: relative;
+    top: -40px;
+    margin-left: 15px;
+    font-size: 48px;
+    display: inline-block;
+}
+
+header a img {
+    height: 120px;
+    margin-left: 10px;
+}
+
+
+
+main section {
+    margin: 0 auto;
+    text-align: center;
+}
+
+main section img {
+    height: 300px;
+    margin-top: 30px;
+}
+
+main section a {
+    /* display: block; */
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+    color: brown;
+}
