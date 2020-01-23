@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="./shopping-cart.css">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <header>
+        <a href="../">
+            <img src="../assets/logo.png" />
+            <h1>Boxes ETC</h1>
+        </a>
+    </header>
+    <main>
+        <h2>Shopping Cart</h2>
+        <table id="shopping-cart">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col" style="width:120px; text-align:center;">Quantity</th>
+                    <th scope="col" style="width:120px; text-align:right">Price</th>
+                    <th scope="col" style="width:120px; text-align:right">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Average Box</td>
+                    <td>7</td>
+                    <td class="right">$4.00</td>
+                    <td class="right">$28.00</td>
+                </tr>
+                <tr>
+                    <td>Medium Box</td>
+                    <td>2</td>
+                    <td class="right">$9.00</td>
+                    <td class="right">$18.00</td>
+                </tr>                
+                <tr>
+                    <td>Donut Box</td>
+                    <td>1</td>
+                    <td class="right">$27.00</td>
+                    <td class="right">$27.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <th scope="row" class="money">Order Total</th>
+                    <td class="money">$73.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <footer>
+        
+    </footer>
+    <script type="module" src="./shopping-cart.js"></script>
+</body>
+
+</html>
