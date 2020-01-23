@@ -69,7 +69,7 @@ span.sale {
 p {
     font-size: 12px;
     text-align: left;
-    line-height: 12px;
+    line-height: 14px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -78,7 +78,7 @@ p {
 }
 
 button {
-    margin: 13px auto 0 auto;
+    margin: 11px auto 0 auto;
     display: block;
 }
 
