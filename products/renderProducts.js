@@ -52,7 +52,6 @@ function renderBox(box) {
             });
         } else {
             cart = [];
-            totalQuantity = 1;
         }
 
         let itemInCart = findById(box.id, cart);
@@ -67,6 +66,8 @@ function renderBox(box) {
         } else {
             itemInCart.quantity++;
         }
+
+        totalQuantity++;
 
         const newCartState = JSON.stringify(cart);
         localStorage.setItem('CART', newCartState);

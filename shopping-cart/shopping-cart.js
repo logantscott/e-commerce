@@ -1,7 +1,15 @@
-import cart from '../data/cart.js';
+// import cart from '../data/cart.js';
 import boxes from '../data/boxes.js';
 import { findById, cartTotal } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
+
+let cart = localStorage.getItem('CART');
+
+if (cart) {
+    cart = JSON.parse(cart);
+} else {
+    cart = [];
+}
 
 const tbody = document.getElementById('cart-body');
 const orderTotalCell = document.getElementById('orderTotal');
