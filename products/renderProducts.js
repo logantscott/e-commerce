@@ -1,3 +1,5 @@
+import { findById } from '../common/utils.js';
+
 function renderBox(box) {
     const li = document.createElement('li');
 
@@ -37,6 +39,41 @@ function renderBox(box) {
     button.textContent = 'Add to Cart';
     button.className = 'addProduct';
     button.value = box.id;
+    button.addEventListener('click', () => {
+        const cartdiv = document.getElementById('cartinfo');
+        let totalQuantity = 0;
+        let cart = localStorage.getItem('CART');
+
+        if (cart) {
+            // console.log(cart);
+            cart = JSON.parse(cart);
+            cart.forEach(cartItem => {
+                totalQuantity = totalQuantity + cartItem.quantity;
+            });
+        } else {
+            cart = [];
+            totalQuantity = 1;
+        }
+
+        let itemInCart = findById(box.id, cart);
+
+        if (!itemInCart) {
+            const initialItem = {
+                id: box.id,
+                quantity: 1
+            };
+
+            cart.push(initialItem);
+        } else {
+            itemInCart.quantity++;
+        }
+
+        const newCartState = JSON.stringify(cart);
+        localStorage.setItem('CART', newCartState);
+
+        cartdiv.textContent = totalQuantity + ' Items';
+
+    });
     li.appendChild(button);
 
     return li;
