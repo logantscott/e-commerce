@@ -22,6 +22,8 @@ main {
 
 h2 {
     margin-left: 20px;
+    display: inline-block;
+    margin-right: 20px;
 }
 
 h3 {
@@ -121,4 +123,8 @@ footer {
 
 #cartinfo:hover, #cartinfo:active {
     text-decoration: underline;
+}
+
+#addform form label {
+    display: block;
 }

@@ -1,8 +1,10 @@
 // import cart from '../data/cart.js';
 import boxes from '../data/boxes.js';
-import { findById, cartTotal, usd } from '../common/utils.js';
+import { findById, cartTotal, usd, getBoxes } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 import { getCart, clearCart } from '../common/cart-api.js';
+
+// getBoxes();
 
 const orderButton = document.getElementById('placeOrder');
 const tbody = document.getElementById('cart-body');

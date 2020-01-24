@@ -1,3 +1,5 @@
+import boxSeedArray from '../data/boxes.js';
+
 export function findById(cartItemID, boxesArray) {
     let match;
     boxesArray.forEach(boxItem => {if (cartItemID === boxItem.id) match = boxItem;});
@@ -27,4 +29,12 @@ export function cartTotal(cartArray, boxArray) {
 
 export function usd(currency) {
     return '$' + currency.toFixed(2);
+}
+
+export function getBoxes() {
+    const boxes = localStorage.getItem('BOXES');
+
+    if (!boxes) {
+        localStorage.setItem(JSON.stringify(boxSeedArray));
+    }
 }
