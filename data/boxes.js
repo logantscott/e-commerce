@@ -6,7 +6,7 @@ const averageBox = {
     description: 'Our best selling box!',
     category: 'boxes',
     price: 5.00,
-    sale: 4.00
+    sale: 4.95
 };
 
 const mediumBox = {
@@ -16,7 +16,7 @@ const mediumBox = {
     color: 'brown',
     description: 'It\'s a medium box.',
     category: 'boxes',
-    price: 9.00
+    price: 9.99
 };
 
 const largeBox = {
@@ -26,7 +26,7 @@ const largeBox = {
     color: 'brown',
     description: 'It\'s a large box.',
     category: 'boxes',
-    price: 14.00
+    price: 14.50
 };
 
 const longBox = {
@@ -46,7 +46,7 @@ const smallBox = {
     color: 'brown',
     description: 'Our smallest box.',
     category: 'boxes',
-    price: 4.00
+    price: 4.50
 };
 
 const flatBox = {
@@ -56,7 +56,8 @@ const flatBox = {
     color: 'brown',
     description: 'For like, TV\'s, or something.',
     category: 'boxes',
-    price: 13.00
+    price: 13.00,
+    sale: 9.99
 };
 
 const donutBox = {

@@ -1,4 +1,5 @@
-import { getCart, addToCart, getCartQuantity } from '../common/cart-api.js';
+import { addToCart, getCartQuantity } from '../common/cart-api.js';
+import { usd } from '../common/utils.js';
 
 function renderBox(box) {
     const li = document.createElement('li');
@@ -15,8 +16,6 @@ function renderBox(box) {
     const div = document.createElement('div');
     div.className = 'price';
     li.appendChild(div);
-
-    const usd = (currency) => '$' + currency.toFixed(2);
     
     const pricespan = document.createElement('span');
     pricespan.className = 'green';

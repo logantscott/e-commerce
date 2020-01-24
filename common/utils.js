@@ -24,3 +24,7 @@ export function cartTotal(cartArray, boxArray) {
     });
     return total;
 }
+
+export function usd(currency) {
+    return '$' + currency.toFixed(2);
+}

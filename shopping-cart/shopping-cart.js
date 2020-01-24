@@ -1,29 +1,34 @@
 // import cart from '../data/cart.js';
 import boxes from '../data/boxes.js';
-import { findById, cartTotal } from '../common/utils.js';
+import { findById, cartTotal, usd } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 import { getCart, clearCart } from '../common/cart-api.js';
 
 const orderButton = document.getElementById('placeOrder');
-
-const cart = getCart();
-if (cart.length === 0) orderButton.disabled = 'disabled';
-
 const tbody = document.getElementById('cart-body');
 const orderTotalCell = document.getElementById('orderTotal');
-const usd = (currency) => '$' + (Math.round(currency * 100) / 100).toFixed(2);
+const cart = getCart();
 
-cart.forEach(cartItem => {
-    const box = findById(cartItem.id, boxes);
-    const lineItem = renderLineItem(cartItem, box);
-    tbody.appendChild(lineItem);
-});
+// check cart contents, do stuff if it has stuff
+if (cart.length === 0) {
+    // disable order button if cart empty
+    orderButton.disabled = 'disabled';
+} else { 
+    // render each tabel row per cart item
+    cart.forEach(cartItem => {
+        const box = findById(cartItem.id, boxes);
+        const lineItem = renderLineItem(cartItem, box);
+        tbody.appendChild(lineItem);
+    });
 
-const orderTotal = cartTotal(cart, boxes);
-orderTotalCell.textContent = usd(orderTotal);
+    // update order total in cart
+    const orderTotal = cartTotal(cart, boxes);
+    orderTotalCell.textContent = usd(orderTotal);
 
-orderButton.addEventListener('click', () => {
-    alert(JSON.stringify(cart, true, 2));
-    clearCart();
-    window.location = '../';
-});
+    // add place order event listener - alerts cart contents, clears storage, returns home
+    orderButton.addEventListener('click', () => {
+        alert(JSON.stringify(cart, true, 2));
+        clearCart();
+        window.location = '../';
+    });
+};
