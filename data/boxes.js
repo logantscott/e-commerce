@@ -54,7 +54,7 @@ const flatBox = {
     name: 'Flat Box',
     image: 'flatbox.jpg',
     color: 'brown',
-    description: 'For like, TV\'s, or something.',
+    description: 'For, like, TV\'s?.',
     category: 'boxes',
     price: 13.00,
     sale: 9.99
