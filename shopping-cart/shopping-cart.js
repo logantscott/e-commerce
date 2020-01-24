@@ -4,11 +4,13 @@ import { findById, cartTotal } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 
 let cart = localStorage.getItem('CART');
+const orderButton = document.getElementById('placeOrder');
 
 if (cart) {
     cart = JSON.parse(cart);
 } else {
     cart = [];
+    orderButton.disabled = 'disabled';
 }
 
 const tbody = document.getElementById('cart-body');
@@ -23,3 +25,9 @@ cart.forEach(cartItem => {
 
 const orderTotal = cartTotal(cart, boxes);
 orderTotalCell.textContent = usd(orderTotal);
+
+orderButton.addEventListener('click', () => {
+    alert(JSON.stringify(cart, true, 2));
+    localStorage.removeItem('CART');
+    window.location = '../';
+});
