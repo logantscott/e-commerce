@@ -1,18 +1,12 @@
 import boxes from '../data/boxes.js';
 import renderBox from './renderProducts.js';
+import { getCartQuantity } from '../common/cart-api.js'
 
 const container = document.getElementById('products');
 const cartdiv = document.getElementById('cartinfo');
-let totalQuantity = 0;
-const json = localStorage.getItem('CART');
+let cartQuantity = getCartQuantity();
 
-if (json) {
-    cartdiv.textContent = JSON.parse(json).forEach(cartItem => {
-        totalQuantity = totalQuantity + cartItem.quantity;
-    });
-}
-
-cartdiv.textContent = totalQuantity + ' Items';
+cartdiv.textContent = 'view cart (' + cartQuantity + ')';
 
 for (let i = 0; i < boxes.length; i++) {
     const box = boxes[i];

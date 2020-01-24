@@ -77,9 +77,18 @@ p {
     margin: 5px 5%;
 }
 
-button {
-    margin: 11px auto 0 auto;
-    display: block;
+div.addToCart select {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+
+button.addProduct {
+    margin: 5px auto 0 auto;
+    display: inline-block;
+}
+
+button.addProduct:hover, button.addProduct:active {
+    box-shadow: 1px 1px 3px #666;
 }
 
 footer a {
@@ -95,15 +104,21 @@ footer {
 
 #cartinfo {
     position: absolute;
+    width: 150px;
+    text-align: center;;
     top:0;
     right: 0;
-    width: 120px;
-    height: 30px;
     background: goldenrod;
-    font-weight: bold;
-    line-height: 30px;
+    /* font-weight: bold; */
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
     color: black;
     border-radius: 5px;
     box-shadow: 1px 1px 3px #333;
-    padding: 5px;
+    padding: 5px 10px;
+}
+
+#cartinfo:hover, #cartinfo:active {
+    text-decoration: underline;
 }

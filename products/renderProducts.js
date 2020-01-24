@@ -1,4 +1,4 @@
-import { findById } from '../common/utils.js';
+import { getCart, addToCart, getCartQuantity } from '../common/cart-api.js';
 
 function renderBox(box) {
     const li = document.createElement('li');
@@ -34,6 +34,22 @@ function renderBox(box) {
     p.className = 'description';
     p.textContent = box.description;
     li.appendChild(p);
+
+    const addToCartDiv = document.createElement('div');
+    addToCartDiv.className = 'addToCart';
+
+    const selectQuantity = document.createElement('select');
+    selectQuantity.id = 'select' + box.id;
+    const options = [];
+    for (let i = 1; i <= 5; i++) {
+        options[i - 1] = document.createElement('option');
+        options[i - 1].value = i;
+        options[i - 1].textContent = i;
+    }
+
+    options.forEach(option => selectQuantity.appendChild(option));
+    addToCartDiv.append(selectQuantity);
+
     
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
@@ -41,41 +57,17 @@ function renderBox(box) {
     button.value = box.id;
     button.addEventListener('click', () => {
         const cartdiv = document.getElementById('cartinfo');
-        let totalQuantity = 0;
-        let cart = localStorage.getItem('CART');
+        const selectQuantity = document.getElementById('select' + box.id);
 
-        if (cart) {
-            // console.log(cart);
-            cart = JSON.parse(cart);
-            cart.forEach(cartItem => {
-                totalQuantity = totalQuantity + cartItem.quantity;
-            });
-        } else {
-            cart = [];
-        }
+        // add item(s) to cart
+        addToCart(box, selectQuantity);
 
-        let itemInCart = findById(box.id, cart);
-
-        if (!itemInCart) {
-            const initialItem = {
-                id: box.id,
-                quantity: 1
-            };
-
-            cart.push(initialItem);
-        } else {
-            itemInCart.quantity++;
-        }
-
-        totalQuantity++;
-
-        const newCartState = JSON.stringify(cart);
-        localStorage.setItem('CART', newCartState);
-
-        cartdiv.textContent = totalQuantity + ' Items';
-
+        // update cart quantity in DOM
+        const cartQuantity = getCartQuantity();
+        cartdiv.textContent = 'view cart (' + cartQuantity + ')';
     });
-    li.appendChild(button);
+    addToCartDiv.appendChild(button);
+    li.appendChild(addToCartDiv);
 
     return li;
 }
