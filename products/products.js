@@ -35,9 +35,17 @@ if (addformSubmit) {
             // category: data.get('category'),
             price: Number(data.get('price')),
             sale: Number(data.get('sale'))
+            //addProduct: function() { updateBoxes(this); }
         };
 
+        if (Object.keys(newBox).some(el => !newBox[el])) {
+            // need better validation/error checking to prevent null... or put defaults in newBox
+            alert('Please fill in all fields!');
+            return;
+        }
+
         updateBoxes(newBox);
+        // newBox.addProduct();
 
         container.appendChild(renderBox(newBox));
     });
