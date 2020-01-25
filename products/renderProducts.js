@@ -1,5 +1,7 @@
 import { addToCart, getCartQuantity } from '../common/cart-api.js';
-import { usd } from '../common/utils.js';
+import { usd, getBoxes } from '../common/utils.js';
+
+getBoxes();
 
 function renderBox(box) {
     const li = document.createElement('li');
@@ -9,7 +11,7 @@ function renderBox(box) {
     li.appendChild(h3);
 
     const img = document.createElement('img');
-    img.src = '../assets/' + box.image;
+    img.src = box.image;
     img.alt = box.name + ' image';
     li.appendChild(img);
 
@@ -62,8 +64,10 @@ function renderBox(box) {
         addToCart(box, selectQuantity);
 
         // update cart quantity in DOM
-        const cartQuantity = getCartQuantity();
-        cartdiv.textContent = 'view cart (' + cartQuantity + ')';
+        if (cartdiv) {
+            const cartQuantity = getCartQuantity();
+            cartdiv.textContent = 'view cart (' + cartQuantity + ')';
+        }
     });
     addToCartDiv.appendChild(button);
     li.appendChild(addToCartDiv);

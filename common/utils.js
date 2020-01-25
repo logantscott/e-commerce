@@ -31,10 +31,23 @@ export function usd(currency) {
     return '$' + currency.toFixed(2);
 }
 
+const boxKey = 'BOXES';
+
 export function getBoxes() {
-    const boxes = localStorage.getItem('BOXES');
+    let boxes = localStorage.getItem(boxKey);
 
     if (!boxes) {
-        localStorage.setItem(JSON.stringify(boxSeedArray));
+        localStorage.setItem(boxKey, JSON.stringify(boxSeedArray));
+        boxes = localStorage.getItem(boxKey);
     }
+    return JSON.parse(boxes);
+}
+
+export function updateBoxes(newBox) {
+    // get current product list
+    let boxes = getBoxes();
+    // add new box to product list (BOXES)
+    boxes.push(newBox);
+    // update BOXES in localstorage
+    localStorage.setItem('BOXES', JSON.stringify(boxes));
 }

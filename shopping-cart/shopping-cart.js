@@ -1,15 +1,22 @@
 // import cart from '../data/cart.js';
-import boxes from '../data/boxes.js';
+// import boxes from '../data/boxes.js';
 import { findById, cartTotal, usd, getBoxes } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 import { getCart, clearCart } from '../common/cart-api.js';
 
-// getBoxes();
+const boxes = getBoxes();
 
 const orderButton = document.getElementById('placeOrder');
 const tbody = document.getElementById('cart-body');
 const orderTotalCell = document.getElementById('orderTotal');
 const cart = getCart();
+
+// reload on storage update if cart changed
+window.addEventListener('storage', () => {
+    if (JSON.stringify(cart) !== JSON.stringify(getCart())) {
+        window.location = './';
+    }
+});
 
 // check cart contents, do stuff if it has stuff
 if (cart.length === 0) {
@@ -33,4 +40,4 @@ if (cart.length === 0) {
         clearCart();
         window.location = '../';
     });
-};
+}
