@@ -32,6 +32,19 @@ h3 {
     margin-left: 5%;
     margin-bottom: 5px;
     margin-top: 5px;
+    float: left;
+}
+
+.delete {
+    float: right;
+    line-height: 16px;  
+    margin: 5px 5px 0 0;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: red;
+    font-weight: bold;
+    padding: 1px 2px;
+    cursor: pointer;
 }
 
 li img {
@@ -123,6 +136,12 @@ footer {
 
 #cartinfo:hover, #cartinfo:active {
     text-decoration: underline;
+}
+
+#addform {
+    width: 300px;
+    text-align: right;
+    margin-top:20px;
 }
 
 #addform form label {

@@ -1,7 +1,7 @@
-import { addToCart, getCartQuantity } from '../common/cart-api.js';
+import { addToCart, getCart, getCartQuantity } from '../common/cart-api.js';
 import { usd, getBoxes } from '../common/utils.js';
 
-getBoxes();
+let boxes = getBoxes();
 
 function renderBox(box) {
     const li = document.createElement('li');
@@ -9,6 +9,30 @@ function renderBox(box) {
     const h3 = document.createElement('h3');
     h3.textContent = box.name;
     li.appendChild(h3);
+
+    if (window.location.href.indexOf('product-entry') !== -1) {
+        const delSpan = document.createElement('span');
+        delSpan.textContent = 'X';
+        delSpan.className = 'delete';
+        // delSpan.id = 'del' + box.id;
+        delSpan.addEventListener('click', () => {
+            const delCheck = confirm('Are you sure you want to remove ' + box.name + '?');
+            if (delCheck) {
+                let cart = getCart();
+                boxes = getBoxes();
+                if (cart[cart.findIndex(cartitem => cartitem.id === box.id)]) {
+                    delete cart.splice(cart.findIndex(cartitem => cartitem.id === box.id), 1);
+                    localStorage.setItem('CART', JSON.stringify(cart));
+                }
+                delete boxes.splice(boxes.findIndex(boxitem => boxitem.id === box.id), 1);
+                // delSpan.id.substr(3)
+                localStorage.setItem('BOXES', JSON.stringify(boxes));
+
+                delSpan.parentElement.remove();
+            }
+        });
+        li.appendChild(delSpan);
+    }
 
     const img = document.createElement('img');
     img.src = box.image;
