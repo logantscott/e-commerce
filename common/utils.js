@@ -36,7 +36,7 @@ const boxKey = 'BOXES';
 export function getBoxes() {
     let boxes = localStorage.getItem(boxKey);
     if (boxes) console.log(boxes.length); 
-    
+
     if (!boxes || boxes === '[]') {
         localStorage.setItem(boxKey, JSON.stringify(boxSeedArray));
         boxes = localStorage.getItem(boxKey);
@@ -44,11 +44,15 @@ export function getBoxes() {
     return JSON.parse(boxes);
 }
 
-export function updateBoxes(newBox) {
+export function updateBoxes(newBox, editType) {
     // get current product list
     let boxes = getBoxes();
     // add new box to product list (BOXES)
-    boxes.push(newBox);
+    if (editType === 'add') {
+        boxes.push(newBox);
+    } else {
+        boxes[(boxes.findIndex(boxitem => boxitem.id === newBox.id))] = newBox;
+    }
     // update BOXES in localstorage
     localStorage.setItem('BOXES', JSON.stringify(boxes));
 }

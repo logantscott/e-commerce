@@ -1,7 +1,7 @@
 // import boxes from '../data/boxes.js';
 import renderBox from './renderProducts.js';
 import { getCartQuantity } from '../common/cart-api.js';
-import { getBoxes, updateBoxes } from '../common/utils.js';
+import { getBoxes, updateBoxes, usd } from '../common/utils.js';
 
 let boxes = getBoxes();
 
@@ -25,7 +25,8 @@ if (addformSubmit) {
     addformSubmit.addEventListener('click', (e) => {
         e.preventDefault();
         const data = new FormData(form);
-
+        let editType = 'add';
+        boxes = getBoxes();
         const newBox = {
             id: data.get('id'),
             name: data.get('name'),
@@ -38,33 +39,47 @@ if (addformSubmit) {
             //addProduct: function() { updateBoxes(this); }
         };
 
-        // newBox.forEach(el => console.log(newBox[el]));
-        // for (let [key, value] of Object.entries(newBox)) {
-        //     console.log(`${key}: ${value}`);
-        //     console.log(!newBox[key] === true && newBox[key] !== 0);
-        // }
-
-        console.log(Object.keys(newBox).some(el => (!newBox[el])));
-        console.log(Object.keys(newBox).some(el => (el === 'sale')));
-        console.log(Object.keys(newBox).some(el => (newBox[el] === 0)));
-
-        if (Object.keys(newBox).some(el => (!newBox[el]))) {
-            // need better validation/error checking to prevent null... or put defaults in newBox
-            if (newBox.sale === 0) {
-                delete newBox.sale;
-            }
-            if (!newBox.price && newBox.name && newBox.description && newBox.image) {
-                alert('Please enter a price!');
-                return;
-            } else if (!newBox.name || !newBox.description || !newBox.image) {
-                alert('Please fill in all fields!');
+        if (newBox.sale === 0) {
+            delete newBox.sale;
+        }
+        if (boxes[boxes.findIndex(boxitem => boxitem.id === newBox.id)]) {
+            // console.log('dummy');
+            const checkOverwrite = confirm('This id already exists! Confirm overwrite?');
+            if (checkOverwrite) { 
+                console.log('overwriting ' + newBox.id);
+                editType = 'edit';
+            } else {
                 return;
             }
         }
+        if (!newBox.name || !newBox.description || !newBox.image) {
+            alert('Please fill in all fields!');
+            return;
+        } else if (!newBox.price && newBox.name && newBox.description && newBox.image) {
+            alert('Please enter a price!');
+            return;
+        }
 
-        updateBoxes(newBox);
+        updateBoxes(newBox, editType);
         // newBox.addProduct();
-
-        container.appendChild(renderBox(newBox));
+        if (editType === 'edit') {
+            console.log('id' + newBox.id);
+            // document.querySelector('#id' + newBox.id).textContent = newBox.id;
+            document.querySelector('#name' + newBox.id).textContent = newBox.name;
+            document.querySelector('#img' + newBox.id).src = newBox.image;
+            if (newBox.sale && Number(newBox.sale)) { // need to check for sale span
+                if (document.querySelector('#sale' + newBox.id)) {
+                    document.querySelector('#sale' + newBox.id).innerHTML = usd(newBox.sale) + '&nbsp;&nbsp;';
+                } else {
+                    const salespan = document.createElement('span');
+                    salespan.innerHTML = usd(newBox.sale) + '&nbsp;&nbsp;';
+                    salespan.className = 'green sale';
+                    document.querySelector('.price' + newBox.id).insertBefore(salespan, document.querySelector('.price' + newBox.id).childNodes[0]); 
+                }    
+            }
+            document.querySelector('#price' + newBox.id).textContent = usd(newBox.price);
+        } else {
+            container.appendChild(renderBox(newBox));
+        }
     });
 }
