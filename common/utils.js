@@ -35,8 +35,8 @@ const boxKey = 'BOXES';
 
 export function getBoxes() {
     let boxes = localStorage.getItem(boxKey);
-    console.log(boxes.length);
-
+    if (boxes) console.log(boxes.length); 
+    
     if (!boxes || boxes === '[]') {
         localStorage.setItem(boxKey, JSON.stringify(boxSeedArray));
         boxes = localStorage.getItem(boxKey);

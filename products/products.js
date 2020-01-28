@@ -38,10 +38,28 @@ if (addformSubmit) {
             //addProduct: function() { updateBoxes(this); }
         };
 
-        if (Object.keys(newBox).some(el => !newBox[el])) {
+        // newBox.forEach(el => console.log(newBox[el]));
+        // for (let [key, value] of Object.entries(newBox)) {
+        //     console.log(`${key}: ${value}`);
+        //     console.log(!newBox[key] === true && newBox[key] !== 0);
+        // }
+
+        console.log(Object.keys(newBox).some(el => (!newBox[el])));
+        console.log(Object.keys(newBox).some(el => (el === 'sale')));
+        console.log(Object.keys(newBox).some(el => (newBox[el] === 0)));
+
+        if (Object.keys(newBox).some(el => (!newBox[el]))) {
             // need better validation/error checking to prevent null... or put defaults in newBox
-            alert('Please fill in all fields!');
-            return;
+            if (newBox.sale === 0) {
+                delete newBox.sale;
+            }
+            if (!newBox.price && newBox.name && newBox.description && newBox.image) {
+                alert('Please enter a price!');
+                return;
+            } else if (!newBox.name || !newBox.description || !newBox.image) {
+                alert('Please fill in all fields!');
+                return;
+            }
         }
 
         updateBoxes(newBox);
