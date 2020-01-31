@@ -2,7 +2,7 @@
 // import boxes from '../data/boxes.js';
 import { findById, cartTotal, usd, getBoxes } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
-import { getCart, clearCart } from '../common/cart-api.js';
+import { getCart, clearCart, updateSalesResults } from '../common/cart-api.js';
 
 const boxes = getBoxes();
 
@@ -36,9 +36,12 @@ if (cart.length === 0) {
 
     // add place order event listener - alerts cart contents, clears storage, returns home
     orderButton.addEventListener('click', () => {
-        alert(JSON.stringify(cart, true, 2));
+        // alert(JSON.stringify(cart, true, 2));
+        updateSalesResults(cart);
+        // console.log(JSON.stringify(cart));
         clearCart();
         cartTotal([], []);
         window.location = '../';
     });
 }
+
