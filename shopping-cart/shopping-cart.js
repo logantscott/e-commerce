@@ -18,6 +18,10 @@ window.addEventListener('storage', () => {
     }
 });
 
+// update order total in cart
+const orderTotal = cartTotal(cart, boxes);
+orderTotalCell.textContent = usd(orderTotal);
+
 // check cart contents, do stuff if it has stuff
 if (cart.length === 0) {
     // disable order button if cart empty
@@ -30,14 +34,11 @@ if (cart.length === 0) {
         tbody.appendChild(lineItem);
     });
 
-    // update order total in cart
-    const orderTotal = cartTotal(cart, boxes);
-    orderTotalCell.textContent = usd(orderTotal);
-
     // add place order event listener - alerts cart contents, clears storage, returns home
     orderButton.addEventListener('click', () => {
         alert(JSON.stringify(cart, true, 2));
         clearCart();
+        cartTotal([], []);
         window.location = '../';
     });
 }
