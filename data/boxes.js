@@ -1,7 +1,7 @@
 const averageBox = {
     id: 'average',
     name: 'Average Box',
-    image: '../assets/averagebox.jpg',
+    image: './assets/averagebox.jpg',
     color: 'brown',
     description: 'Our best selling box!',
     category: 'boxes',
@@ -12,7 +12,7 @@ const averageBox = {
 const mediumBox = {
     id: 'medium',
     name: 'Medium Box',
-    image: '../assets/mediumbox.jpg',
+    image: './assets/mediumbox.jpg',
     color: 'brown',
     description: 'It\'s a medium box.',
     category: 'boxes',
@@ -22,7 +22,7 @@ const mediumBox = {
 const largeBox = {
     id: 'large',
     name: 'Large Box',
-    image: '../assets/largebox.jpg',
+    image: './assets/largebox.jpg',
     color: 'brown',
     description: 'It\'s a large box.',
     category: 'boxes',
@@ -32,7 +32,7 @@ const largeBox = {
 const longBox = {
     id: 'long',
     name: 'Long Box',
-    image: '../assets/longbox.jpg',
+    image: './assets/longbox.jpg',
     color: 'brown',
     description: 'It\'s a long box.',
     category: 'boxes',
@@ -42,7 +42,7 @@ const longBox = {
 const smallBox = {
     id: 'small',
     name: 'Small Box',
-    image: '../assets/smallbox.jpg',
+    image: './assets/smallbox.jpg',
     color: 'brown',
     description: 'Our smallest box.',
     category: 'boxes',
@@ -52,7 +52,7 @@ const smallBox = {
 const flatBox = {
     id: 'flat',
     name: 'Flat Box',
-    image: '../assets/flatbox.jpg',
+    image: './assets/flatbox.jpg',
     color: 'brown',
     description: 'For, like, TV\'s?.',
     category: 'boxes',
@@ -63,7 +63,7 @@ const flatBox = {
 const donutBox = {
     id: 'donut',
     name: 'Donut Box',
-    image: '../assets/donutbox.jpg',
+    image: './assets/donutbox.jpg',
     color: 'pink',
     description: 'No one really knows what this box is used for.',
     category: 'boxes',
