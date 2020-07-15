@@ -5,6 +5,8 @@ import { getBoxes, updateBoxes, usd } from '../common/utils.js';
 
 let boxes = getBoxes();
 
+console.log(JSON.stringify(boxes));
+
 const container = document.getElementById('products');
 const cartdiv = document.getElementById('cartinfo');
 const addformSubmit = document.getElementById('addform-submit');

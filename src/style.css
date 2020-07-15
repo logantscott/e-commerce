@@ -20,6 +20,7 @@ header {
 header div {
     width: 1080px;
     margin: 0 auto;
+    position: relative;
 }
 
 header a, header a:active, header a:hover {
@@ -94,4 +95,11 @@ a {
 a:hover, a:active {
     text-decoration: underline;
     color: brown;
+}
+
+a.nav {
+    float:right;
+    line-height: normal;
+    margin-left: 20px;
+    margin-top: 15px;
 }
