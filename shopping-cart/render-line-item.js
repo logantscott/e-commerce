@@ -7,7 +7,7 @@ export default function renderLineItem(cartItem, box) {
     const tr = document.createElement('tr');
     const boxPrice = (box.sale) ? box.sale : box.price;
 
-    const tds = [
+    const lineItemTDs = [
         {
             textContent: box.name
         },
@@ -24,11 +24,11 @@ export default function renderLineItem(cartItem, box) {
         }
     ];
 
-    tds.forEach(element => {
-        const td = document.createElement('td');
-        td.textContent = element.textContent;
-        td.className = element.class;
-        tr.appendChild(td);
+    lineItemTDs.forEach(lineItemTD => {
+        const newTD = document.createElement('td');
+        newTD.textContent = lineItemTD.textContent;
+        newTD.className = lineItemTD.class;
+        tr.appendChild(newTD);
     });
 
     return tr;

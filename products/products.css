@@ -18,10 +18,12 @@ li {
 
 main {
     position: relative;
+    padding-top: 20px;
 }
 
 h2 {
-    margin-left: 20px;
+    margin: 0 20px;
+    display: inline-block;
 }
 
 h3 {
@@ -30,6 +32,19 @@ h3 {
     margin-left: 5%;
     margin-bottom: 5px;
     margin-top: 5px;
+    float: left;
+}
+
+.delete {
+    float: right;
+    line-height: 16px;  
+    margin: 2px 15px 0 0;
+    border: 1px solid #999;
+    border-radius: 3px;
+    color: red;
+    font-weight: bold;
+    padding: 1px 5px;
+    cursor: pointer;
 }
 
 li img {
@@ -38,6 +53,7 @@ li img {
     display: block;
     margin: 0 auto;
     padding: 0 5%;
+    clear: both;
 }
 
 .price {
@@ -87,7 +103,12 @@ button.addProduct {
     display: inline-block;
 }
 
-button.addProduct:hover, button.addProduct:active {
+button.editProduct {
+    margin: 0px auto 5px auto;
+    display: inline-block;
+}
+
+button:hover, button:active {
     box-shadow: 1px 1px 3px #666;
 }
 
@@ -106,7 +127,7 @@ footer {
     position: absolute;
     width: 150px;
     text-align: center;;
-    top:0;
+    top:20px;
     right: 0;
     background: goldenrod;
     /* font-weight: bold; */
@@ -121,4 +142,14 @@ footer {
 
 #cartinfo:hover, #cartinfo:active {
     text-decoration: underline;
+}
+
+#addform {
+    width: 300px;
+    text-align: right;
+    margin-bottom:10px;
+}
+
+#addform form label {
+    display: block;
 }

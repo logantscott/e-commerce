@@ -1,3 +1,5 @@
+import boxSeedArray from '../data/boxes.js';
+
 export function findById(cartItemID, boxesArray) {
     let match;
     boxesArray.forEach(boxItem => {if (cartItemID === boxItem.id) match = boxItem;});
@@ -27,4 +29,30 @@ export function cartTotal(cartArray, boxArray) {
 
 export function usd(currency) {
     return '$' + currency.toFixed(2);
+}
+
+const boxKey = 'BOXES';
+
+export function getBoxes() {
+    let boxes = localStorage.getItem(boxKey);
+    if (boxes) console.log(boxes.length); 
+
+    if (!boxes || boxes === '[]') {
+        localStorage.setItem(boxKey, JSON.stringify(boxSeedArray));
+        boxes = localStorage.getItem(boxKey);
+    }
+    return JSON.parse(boxes);
+}
+
+export function updateBoxes(newBox, editType) {
+    // get current product list
+    let boxes = getBoxes();
+    // add new box to product list (BOXES)
+    if (editType === 'add') {
+        boxes.push(newBox);
+    } else {
+        boxes[(boxes.findIndex(boxitem => boxitem.id === newBox.id))] = newBox;
+    }
+    // update BOXES in localstorage
+    localStorage.setItem('BOXES', JSON.stringify(boxes));
 }
