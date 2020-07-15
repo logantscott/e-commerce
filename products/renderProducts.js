@@ -1,3 +1,6 @@
+import { addToCart, getCartQuantity } from '../common/cart-api.js';
+import { usd } from '../common/utils.js';
+
 function renderBox(box) {
     const li = document.createElement('li');
 
@@ -13,8 +16,6 @@ function renderBox(box) {
     const div = document.createElement('div');
     div.className = 'price';
     li.appendChild(div);
-
-    const usd = (currency) => '$' + currency.toFixed(2);
     
     const pricespan = document.createElement('span');
     pricespan.className = 'green';
@@ -32,12 +33,40 @@ function renderBox(box) {
     p.className = 'description';
     p.textContent = box.description;
     li.appendChild(p);
+
+    const addToCartDiv = document.createElement('div');
+    addToCartDiv.className = 'addToCart';
+
+    const selectQuantity = document.createElement('select');
+    selectQuantity.id = 'select' + box.id;
+    const options = [];
+    for (let i = 1; i <= 5; i++) {
+        options[i - 1] = document.createElement('option');
+        options[i - 1].value = i;
+        options[i - 1].textContent = i;
+    }
+
+    options.forEach(option => selectQuantity.appendChild(option));
+    addToCartDiv.append(selectQuantity);
+
     
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
     button.className = 'addProduct';
     button.value = box.id;
-    li.appendChild(button);
+    button.addEventListener('click', () => {
+        const cartdiv = document.getElementById('cartinfo');
+        const selectQuantity = document.getElementById('select' + box.id);
+
+        // add item(s) to cart
+        addToCart(box, selectQuantity);
+
+        // update cart quantity in DOM
+        const cartQuantity = getCartQuantity();
+        cartdiv.textContent = 'view cart (' + cartQuantity + ')';
+    });
+    addToCartDiv.appendChild(button);
+    li.appendChild(addToCartDiv);
 
     return li;
 }

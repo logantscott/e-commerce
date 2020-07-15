@@ -1,4 +1,4 @@
-export default function findById(cartItemID, boxesArray) {
+export function findById(cartItemID, boxesArray) {
     let match;
     boxesArray.forEach(boxItem => {if (cartItemID === boxItem.id) match = boxItem;});
     return match;
@@ -23,4 +23,8 @@ export function cartTotal(cartArray, boxArray) {
         });
     });
     return total;
+}
+
+export function usd(currency) {
+    return '$' + currency.toFixed(2);
 }

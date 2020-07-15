@@ -9,15 +9,42 @@ main h2 {
 table {
     max-width: 960px;
     margin: 0 auto;
+    border-spacing: 0px;
+}
+
+tr {
+    border-spacing: 0px;
+    margin: 0px;
 }
 
 td {
     text-align: center;
 }
 
+td, th {
+    border: 1px solid black;
+    border-spacing: 0px;
+    margin: 0px;
+}
+
+th {
+    background: #ddd;
+}
+
 #orderContainer {
     max-width: 760px;
     text-align: right;
+}
+
+#cart-foot {
+    /* line-height: 20px;    */
+    background: #ddd;
+    font-weight: bold;
+}
+
+.money {
+    text-align: right;
+    padding-right: 5px;
 }
 
 button {
