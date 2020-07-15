@@ -1,5 +1,5 @@
 const averageBox = {
-    id: 21,
+    id: 'average',
     name: 'Average Box',
     image: 'averagebox.jpg',
     color: 'brown',
@@ -10,7 +10,7 @@ const averageBox = {
 };
 
 const mediumBox = {
-    id: 24,
+    id: 'medium',
     name: 'Medium Box',
     image: 'mediumbox.jpg',
     color: 'brown',
@@ -20,7 +20,7 @@ const mediumBox = {
 };
 
 const largeBox = {
-    id: 43,
+    id: 'large',
     name: 'Large Box',
     image: 'largebox.jpg',
     color: 'brown',
@@ -30,7 +30,7 @@ const largeBox = {
 };
 
 const longBox = {
-    id: 38,
+    id: 'long',
     name: 'Long Box',
     image: 'longbox.jpg',
     color: 'brown',
@@ -40,7 +40,7 @@ const longBox = {
 };
 
 const smallBox = {
-    id: 1,
+    id: 'small',
     name: 'Small Box',
     image: 'smallbox.jpg',
     color: 'brown',
@@ -50,7 +50,7 @@ const smallBox = {
 };
 
 const flatBox = {
-    id: 101,
+    id: 'flat',
     name: 'Flat Box',
     image: 'flatbox.jpg',
     color: 'brown',
@@ -60,7 +60,7 @@ const flatBox = {
 };
 
 const donutBox = {
-    id: 21,
+    id: 'donut',
     name: 'Donut Box',
     image: 'donutbox.jpg',
     color: 'pink',
